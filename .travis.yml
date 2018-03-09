@@ -1,36 +1,17 @@
 ---
+sudo: false
+
 language: node_js
+
 node_js:
-  # we recommend testing addons with the same minimum supported node version as Ember CLI
-  # so that your addon works for all apps
-  - "6"
   - "stable"
 
-sudo: false
-dist: trusty
-
-addons:
-  chrome: stable
-
-cache:
-  directories:
-    - $HOME/.npm
-    - $HOME/.cache # includes bowers cache
-
 before_install:
-  - npm config set spin false
-  - npm install -g npm@4
-  - npm --version
+  - npm install -g npm@^5.7
 
 install:
-  - npm install
-
-before_script:
-  - sudo chown root /opt/google/chrome/chrome-sandbox
-  - sudo chmod 4755 /opt/google/chrome/chrome-sandbox
+  - npm ci
 
 script:
-  # Usually, it's ok to finish the test scenario without reverting
-  #  to the addon's original dependency state, skipping "cleanup".
   - npm run lint
   - npm run test
