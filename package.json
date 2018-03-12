@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "broccoli-funnel": "^2.0.1",
+    "broccoli-markdown-codefences": "^1.0.0",
     "broccoli-merge-trees": "^3.0.0",
     "ember-cli-babel": "^6.6.0",
     "ember-cli-version-checker": "^2.1.0",
@@ -62,7 +63,7 @@
     "ember-source": "~2.12.0",
     "ember-source-channel-url": "^1.0.1",
     "ember-try": "^0.2.23",
-    "eslint": "^4.18.2",
+    "eslint": "^3.0.0",
     "eslint-config-bbva": "^2.0.0",
     "fs-extra": "^5.0.0",
     "loader.js": "^4.2.3",
