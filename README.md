@@ -5,7 +5,7 @@
 [![npm version](https://badge.fury.io/js/ember-cli-markdown-codefences.svg)](https://badge.fury.io/js/ember-cli-markdown-codefences)
 [![Dependency Status](https://david-dm.org/BBVAEngineering/ember-cli-markdown-codefences.svg)](https://david-dm.org/BBVAEngineering/ember-cli-markdown-codefences)
 
-Ember wrapper for [remark-lint](https://github.com/remarkjs/remark-lint).
+> Generate tests for markdown codefences.
 
 ## Information
 
