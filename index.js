@@ -42,8 +42,7 @@ module.exports = {
 	lintTree(type) {
 		const options = {
 			codeTransforms: this.codeTransforms,
-			testGenerator: this.testGenerator,
-			persist: false
+			testGenerator: this.testGenerator
 		};
 		const files = new Funnel('.', {
 			include: markdownExtensions.map((ext) => `${type}/**/*.${ext}`),
