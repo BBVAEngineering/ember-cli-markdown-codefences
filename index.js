@@ -2,7 +2,6 @@
 
 const Funnel = require('broccoli-funnel');
 const MarkdownCodefences = require('broccoli-markdown-codefences');
-const mergeTrees = require('broccoli-merge-trees');
 const VersionChecker = require('ember-cli-version-checker');
 const codeTransforms = require('./lib/code-transforms');
 const testGenerators = require('./lib/test-generators');
@@ -40,28 +39,18 @@ module.exports = {
 	},
 
 	lintTree(type) {
-		const options = {
-			codeTransforms: this.codeTransforms,
-			testGenerator: this.testGenerator
-		};
-		const files = new Funnel('.', {
-			include: markdownExtensions.map((ext) => `${type}/**/*.${ext}`),
-			allowEmpty: true
-		});
-		const markdownTree = new MarkdownCodefences(files, options);
-
-		if (type === 'tests') {
-			// Instead of using this tree only to lint tests, use it to lint root dir files
-			const rootMarkdowns = new Funnel('.', {
-				include: markdownExtensions.map((ext) => `*.${ext}`)
-			});
-
-			return mergeTrees([
-				new MarkdownCodefences(rootMarkdowns, options),
-				markdownTree
-			]);
+		if (type === 'templates') {
+			return null;
 		}
 
-		return markdownTree;
+		const files = new Funnel(type, {
+			include: [`**/*.{${markdownExtensions.join(',')}}`],
+			allowEmpty: true
+		});
+
+		return new MarkdownCodefences(files, {
+			codeTransforms: this.codeTransforms,
+			testGenerator: this.testGenerator
+		});
 	}
 };
