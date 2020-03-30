@@ -19,7 +19,7 @@ describe('ember-cli-eslint', function() {
 		const result = await emberTest();
 
 		expect(result.error).to.not.exist;
-		expect(result.stdout).to.not.match(/^not ok \d+ \w+ \d+.0 - Markdown Codefences/m);
+		expect(result.stdout).to.not.match(/^not ok .* - Markdown Codefences/m);
 	});
 
 	it('fails if a codefences tests fails', async() => {
@@ -32,7 +32,7 @@ describe('ember-cli-eslint', function() {
 		const result = await emberTest();
 
 		expect(result.error).to.exist;
-		expect(result.stdout).to.match(/^not ok \d+ \w+ \d+.0 - Markdown Codefences \| dummy\/app\/some.md: fenced code should work/m);
+		expect(result.stdout).to.match(/^not ok .* - Markdown Codefences \| dummy\/app\/some\.md: fenced code should work/m);
 	});
 
 	describe('ember-qunit', () => {
@@ -46,7 +46,7 @@ describe('ember-cli-eslint', function() {
 			const result = await emberTest();
 
 			expect(result.error).to.exist;
-			expect(result.stdout).to.match(/^not ok \d+ \w+ \d+.0 - Markdown Codefences \| dummy\/app\/some.md: fenced code should work/m);
+			expect(result.stdout).to.match(/^not ok .* - Markdown Codefences \| dummy\/app\/some\.md: fenced code should work/m);
 		});
 	});
 });
