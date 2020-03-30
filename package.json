@@ -32,12 +32,8 @@
   "scripts": {
     "lint": "npm run lint:js && npm run lint:hbs",
     "lint:hbs": "ember-template-lint .",
-    "test": "COVERAGE=true mocha node-tests/*test.js",
-    "check-coverage": "istanbul check-coverage coverage/coverage-final.json --statements 100 --functions 100 --branches 100 --lines 100",
+    "test": "mocha node-tests/*test.js",
     "test:all": "ember try:each",
-    "posttest": "npm run report-coverage && npm run check-coverage && npm run validate-coverage",
-    "report-coverage": "istanbul report --include=coverage/coverage-final.json text",
-    "validate-coverage": "test \"$(cat coverage/coverage-summary.json | json total.lines.total)\" -ge 0",
     "commit": "git-cz",
     "lint:js": "eslint --max-warnings 0 ./*.js config lib node-tests tests",
     "semantic-release": "semantic-release"
@@ -88,7 +84,6 @@
     "eslint-plugin-node": "^11.0.0",
     "fs-extra": "^9.0.0",
     "husky": "^4.2.3",
-    "istanbul": "^0.4.5",
     "json": "^9.0.6",
     "loader.js": "^4.7.0",
     "mocha": "^7.1.1",
