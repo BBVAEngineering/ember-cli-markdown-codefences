@@ -50,7 +50,7 @@
     "report-coverage": "istanbul report --include=coverage/coverage-final.json text",
     "start": "ember serve",
     "test:release": "semantic-release --branches=$(git rev-parse --abbrev-ref HEAD) --dry-run",
-    "validate-coverage": "test \"$(cat coverage/coverage-summary.json | json total.lines.total)\" -gt 0"
+    "validate-coverage": "test \"$(cat coverage/coverage-summary.json | json total.lines.total)\" -ge 0"
   },
   "dependencies": {
     "broccoli-funnel": "^2.0.1",
