@@ -35,7 +35,7 @@
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
-    "test": "npm-run-all lint test:*",
+    "test": "npm-run-all lint test:ember",
     "test:ember": "ember test",
     "test:ember-compatibility": "ember try:each",
     "commit": "git-cz",
