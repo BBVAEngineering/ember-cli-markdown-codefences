@@ -8,16 +8,22 @@ const testGenerators = require('./lib/test-generators');
 const markdownExtensions = require('markdown-extensions');
 
 module.exports = {
-	name: 'ember-cli-markdown-codefences',
+	name: require('./package').name,
 
 	init() {
 		this._super.init && this._super.init.apply(this, arguments);
 
 		const checker = new VersionChecker(this);
 
-		if (checker.for('ember-qunit', 'npm').exists() || checker.for('ember-cli-qunit', 'npm').exists()) {
+		if (
+			checker.for('ember-qunit', 'npm').exists() ||
+			checker.for('ember-cli-qunit', 'npm').exists()
+		) {
 			this.testGenerator = 'ember-qunit';
-		} else if (checker.for('ember-mocha', 'npm').exists() || checker.for('ember-cli-mocha', 'npm').exists()) {
+		} else if (
+			checker.for('ember-mocha', 'npm').exists() ||
+			checker.for('ember-cli-mocha', 'npm').exists()
+		) {
 			this.testGenerator = 'ember-mocha';
 		}
 	},
@@ -35,7 +41,11 @@ module.exports = {
 			this.testGenerator = testGenerators[this.testGenerator];
 		}
 
-		this.codeTransforms = Object.assign({}, codeTransforms, options.codeTransforms);
+		this.codeTransforms = Object.assign(
+			{},
+			codeTransforms,
+			options.codeTransforms
+		);
 	},
 
 	lintTree(type) {
@@ -45,12 +55,12 @@ module.exports = {
 
 		const files = new Funnel(type, {
 			include: [`**/*.{${markdownExtensions.join(',')}}`],
-			allowEmpty: true
+			allowEmpty: true,
 		});
 
 		return new MarkdownCodefences(files, {
 			codeTransforms: this.codeTransforms,
-			testGenerator: this.testGenerator
+			testGenerator: this.testGenerator,
 		});
-	}
+	},
 };
