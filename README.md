@@ -28,8 +28,8 @@ Markdown codefences will be tested by `ember-cli-qunit` or `ember-cli-mocha` aut
 ```js
 const app = new EmberApp(defaults, {
   'markdown-codefences': {
-    testGenerator: 'ember-qunit'
-  }
+    testGenerator: 'ember-qunit',
+  },
 });
 ```
 

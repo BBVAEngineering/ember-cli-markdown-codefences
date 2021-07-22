@@ -8,59 +8,59 @@ const testGenerators = require('./lib/test-generators');
 const markdownExtensions = require('markdown-extensions');
 
 module.exports = {
-	name: require('./package').name,
+  name: require('./package').name,
 
-	init() {
-		this._super.init && this._super.init.apply(this, arguments);
+  init() {
+    this._super.init && this._super.init.apply(this, arguments);
 
-		const checker = new VersionChecker(this);
+    const checker = new VersionChecker(this);
 
-		if (
-			checker.for('ember-qunit', 'npm').exists() ||
-			checker.for('ember-cli-qunit', 'npm').exists()
-		) {
-			this.testGenerator = 'ember-qunit';
-		} else if (
-			checker.for('ember-mocha', 'npm').exists() ||
-			checker.for('ember-cli-mocha', 'npm').exists()
-		) {
-			this.testGenerator = 'ember-mocha';
-		}
-	},
+    if (
+      checker.for('ember-qunit', 'npm').exists() ||
+      checker.for('ember-cli-qunit', 'npm').exists()
+    ) {
+      this.testGenerator = 'ember-qunit';
+    } else if (
+      checker.for('ember-mocha', 'npm').exists() ||
+      checker.for('ember-cli-mocha', 'npm').exists()
+    ) {
+      this.testGenerator = 'ember-mocha';
+    }
+  },
 
-	included(app) {
-		this._super.included.apply(this, arguments);
+  included(app) {
+    this._super.included.apply(this, arguments);
 
-		const options = app.options['markdown-codefences'] || {};
+    const options = app.options['markdown-codefences'] || {};
 
-		if (options.testGenerator) {
-			this.testGenerator = options.testGenerator;
-		}
+    if (options.testGenerator) {
+      this.testGenerator = options.testGenerator;
+    }
 
-		if (testGenerators[this.testGenerator]) {
-			this.testGenerator = testGenerators[this.testGenerator];
-		}
+    if (testGenerators[this.testGenerator]) {
+      this.testGenerator = testGenerators[this.testGenerator];
+    }
 
-		this.codeTransforms = Object.assign(
-			{},
-			codeTransforms,
-			options.codeTransforms
-		);
-	},
+    this.codeTransforms = Object.assign(
+      {},
+      codeTransforms,
+      options.codeTransforms
+    );
+  },
 
-	lintTree(type) {
-		if (type === 'templates') {
-			return null;
-		}
+  lintTree(type) {
+    if (type === 'templates') {
+      return null;
+    }
 
-		const files = new Funnel(type, {
-			include: [`**/*.{${markdownExtensions.join(',')}}`],
-			allowEmpty: true,
-		});
+    const files = new Funnel(type, {
+      include: [`**/*.{${markdownExtensions.join(',')}}`],
+      allowEmpty: true,
+    });
 
-		return new MarkdownCodefences(files, {
-			codeTransforms: this.codeTransforms,
-			testGenerator: this.testGenerator,
-		});
-	},
+    return new MarkdownCodefences(files, {
+      codeTransforms: this.codeTransforms,
+      testGenerator: this.testGenerator,
+    });
+  },
 };
