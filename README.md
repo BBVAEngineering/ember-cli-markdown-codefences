@@ -2,10 +2,11 @@
 
 [![Build Status](https://travis-ci.org/BBVAEngineering/ember-cli-markdown-codefences.svg?branch=master)](https://travis-ci.org/BBVAEngineering/ember-cli-markdown-codefences)
 [![GitHub version](https://badge.fury.io/gh/BBVAEngineering%2Fember-cli-markdown-codefences.svg)](https://badge.fury.io/gh/BBVAEngineering%2Fember-cli-markdown-codefences)
-[![npm version](https://badge.fury.io/js/ember-cli-markdown-codefences.svg)](https://badge.fury.io/js/ember-cli-markdown-codefences)
+[![NPM version](https://badge.fury.io/js/ember-cli-markdown-codefences.svg)](https://badge.fury.io/js/ember-cli-markdown-codefences)
 [![Dependency Status](https://david-dm.org/BBVAEngineering/ember-cli-markdown-codefences.svg)](https://david-dm.org/BBVAEngineering/ember-cli-markdown-codefences)
-
-> Generate tests for markdown codefences.
+[![codecov](https://codecov.io/gh/BBVAEngineering/ember-cli-markdown-codefences/branch/master/graph/badge.svg)](https://codecov.io/gh/BBVAEngineering/ember-cli-markdown-codefences)
+[![Greenkeeper badge](https://badges.greenkeeper.io/BBVAEngineering/ember-cli-markdown-codefences.svg)](https://greenkeeper.io/)
+[![Ember Observer Score](https://emberobserver.com/badges/ember-cli-markdown-codefences.svg)](https://emberobserver.com/addons/ember-cli-markdown-codefences)
 
 ## Information
 
