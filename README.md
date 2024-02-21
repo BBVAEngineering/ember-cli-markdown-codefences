@@ -1,3 +1,5 @@
+# DEPRECATED
+
 # ember-cli-markdown-codefences
 
 [![Build Status](https://travis-ci.org/BBVAEngineering/ember-cli-markdown-codefences.svg?branch=master)](https://travis-ci.org/BBVAEngineering/ember-cli-markdown-codefences)
